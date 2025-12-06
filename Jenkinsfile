@@ -1,7 +1,7 @@
 pipeline {
         agent any
         tools {
-                manve 'maven-3.9'
+                maven 'maven-3.9'
         }
         stages {
                 stage ('Checkout'){
@@ -16,13 +16,13 @@ pipeline {
                                 sh 'mvn clean compile'
                         }
                 }
-                stages ('Test') {
+                stage ('Test') {
                         steps {
                                 echo 'Testing the app...'
                                 sh 'mvn test'
                         }
                 }
-                stages ('Packahe') {
+                stage ('Package') {
                         steps {
                                 sh 'mvn package'
                         }
